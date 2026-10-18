@@ -1,0 +1,144 @@
+---
+// Animated self-introduction, right after the hero. The markup is the FINAL frame (monogram + full line),
+// so it is what shows without JS and under reduced motion; src/scripts/intro.ts builds the timeline
+// and starts it from frame 0 when the section scrolls into view.
+import { Picture } from 'astro:assets';
+import { image } from '../lib/media';
+import type en from '../../content/en.json';
+
+interface Props {
+  t: typeof en;
+}
+
+const { t } = Astro.props;
+const i = t.intro;
+
+// Iris: seven blades, each a quad pivoting on the ring. Rotating every blade about its pivot by a
+// negative angle opens a seven-sided hole (see intro.ts). Coordinates are in a 200 x 200 viewBox.
+const C = 100;
+const R = 94;
+const N = 7;
+const pt = (r: number, a: number) => [C + r * Math.cos((a * Math.PI) / 180), C + r * Math.sin((a * Math.PI) / 180)];
+const fmt = (p: number[]) => p.map((n) => n.toFixed(2)).join(',');
+const blades = Array.from({ length: N }, (_, k) => {
+  const a = (k * 360) / N;
+  const P = pt(R, a);
+  return { points: [P, pt(150, a + 60), pt(R, a + 120), pt(14, a + 200)].map(fmt).join(' '), pivot: P };
+});
+
+// Photos seen through the aperture, in order. `pos` and `zoom` crop each so its subject reads inside a circle.
+const photos = [
+  { id: 'booth-09', pos: '50% 64%', zoom: 1.35 },
+  { id: 'speaker-01', pos: '45% 21%', zoom: 2.5 },
+  { id: 'podcat-02', pos: '58% 33%', zoom: 1.6 },
+  { id: 'poster:station-01', pos: '72% 40%', zoom: 1.15 },
+];
+---
+
+<section class="intro" id="intro" aria-labelledby="intro-h" data-intro>
+  <h2 id="intro-h" class="sr-only">{i.heading}</h2>
+  <p class="sr-only">{i.script}</p>
+
+  <div class="wrap">
+    <div class="intro-stage" aria-hidden="true">
+      <div class="in-bg" data-k="bg"></div>
+
+      <!-- 1. Hi -->
+      <p class="in-scene in-hi" data-k="hi">
+        <span class="in-type"><span class="in-ghost">{i.hi}</span><span class="in-live"><span data-type={i.hi}></span><span class="in-caret" data-k="caret1"></span></span></span>
+      </p>
+
+      <!-- 2. Name. TODO: silhouette. Portfolio/09-Profile/ had no side-profile photo, so this scene shows the name only.
+           When the photo is added, trace it to one flat path (head, neck, shoulders) and slide it in beside the name. -->
+      <p class="in-scene in-name" data-k="name">
+        <span class="in-type"><span class="in-ghost">{i.name}</span><span class="in-live"><span data-type={i.name}></span><span class="in-caret" data-k="caret2"></span></span></span>
+      </p>
+
+      <!-- 3. Verbs -->
+      <div class="in-scene in-verbs" data-k="verbs">
+        <span class="in-dot" data-k="dot"></span>
+        <span class="in-verb-slot">
+          {i.verbs.map((v, n) => <span class="in-verb" data-k={`verb${n}`}>{v}</span>)}
+        </span>
+      </div>
+
+      <!-- 4-5. Aperture, then the push through it -->
+      <div class="in-scene in-lens-wrap" data-k="lensWrap">
+        <div class="in-lens" data-k="lens">
+          <div class="in-photos">
+            {photos.map((p, n) => (
+              <div class="in-photo" data-k={`photo${n}`}>
+                <!-- Inserted by intro.ts when the intro starts, so these photos never load with the page. -->
+                <template>
+                <Picture
+                  src={image(p.id)}
+                  alt=""
+                  formats={['avif', 'webp']}
+                  widths={[480, 960]}
+                  sizes="(min-width: 40em) 60vw, 90vw"
+                  loading="lazy"
+                  decoding="async"
+                  quality={60}
+                  style={`object-position: ${p.pos}; transform-origin: ${p.pos}; transform: scale(${p.zoom})`}
+                />
+                </template>
+              </div>
+            ))}
+          </div>
+          <svg class="in-iris" viewBox="0 0 200 200">
+            <defs><clipPath id="intro-iris-clip"><circle cx="100" cy="100" r={R} /></clipPath></defs>
+            <g clip-path="url(#intro-iris-clip)" data-k="blades">
+              {blades.map((b, n) => (
+                <polygon class="in-blade" points={b.points} data-k={`blade${n}`} style={`transform-origin: ${b.pivot[0].toFixed(2)}px ${b.pivot[1].toFixed(2)}px`} />
+              ))}
+            </g>
+            <circle class="in-ring" cx="100" cy="100" r={R + 2} pathLength="1" data-k="ring" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 6. Measure -->
+      <div class="in-scene in-measure" data-k="measure">
+        <div class="in-measure-box">
+        <p class="in-type"><span class="in-ghost">{i.measure}</span><span class="in-live"><span data-type={i.measure}></span><span class="in-caret" data-k="caret3"></span></span></p>
+        <svg class="in-growth" viewBox="0 0 300 40">
+          <path d="M2 36 C 80 34, 140 30, 190 20 S 270 6, 298 3" pathLength="1" data-k="growth" />
+        </svg>
+        </div>
+      </div>
+
+      <!-- 7. Title and question -->
+      <div class="in-scene in-title" data-k="titleScene">
+        <p class="in-role" data-k="role">{i.title}</p>
+        <p class="in-ask" data-k="ask"><span class="in-ask-dot"></span>{i.question}</p>
+      </div>
+
+      <!-- 8. Monogram: the final, held frame -->
+      <div class="in-scene in-end" data-k="end">
+        <svg class="in-mono" viewBox="0 0 64 64">
+          <defs><clipPath id="intro-mono-clip"><rect x="0" y="6" width="64" height="47" /></clipPath></defs>
+          <g clip-path="url(#intro-mono-clip)">
+            <path class="in-mono-bars" d="M10 40.5 H29 M35 40.5 H54" data-k="bars" />
+            <path class="in-mono-aa" d="M6.5 60 L19.5 11 L32 58 L44.5 11 L57.5 60" pathLength="1" data-k="aa" />
+          </g>
+        </svg>
+        <p class="in-final" data-k="final">{i.finalLine}</p>
+      </div>
+    </div>
+
+    <div class="intro-controls" hidden>
+      <button type="button" class="reel-btn" data-intro-sound aria-pressed="false" aria-label={t.captions.soundOn} data-label-on={t.captions.soundOn} data-label-off={t.captions.soundOff}>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-muted"><path d="M3.5 7.5h3l4-3.2v11.4l-4-3.2h-3z" fill="currentColor" /><path d="M13 7.5l4 5M17 7.5l-4 5" stroke="currentColor" stroke-width="1.5" fill="none" /></svg>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-sound"><path d="M3.5 7.5h3l4-3.2v11.4l-4-3.2h-3z" fill="currentColor" /><path d="M13.2 7.2a4 4 0 0 1 0 5.6M15.4 5a7 7 0 0 1 0 10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" /></svg>
+      </button>
+      <button type="button" class="reel-btn" data-intro-toggle aria-label={i.pause} data-label-pause={i.pause} data-label-play={i.play}>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-pause"><path d="M6 4.5h2.6v11H6zM11.4 4.5H14v11h-2.6z" fill="currentColor" /></svg>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-play"><path d="M6 4.5v11l9-5.5z" fill="currentColor" /></svg>
+      </button>
+      <button type="button" class="intro-replay" data-intro-replay hidden>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" /><path d="M4 3.5v3.2h3.2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        {i.replay}
+      </button>
+    </div>
+  </div>
+</section>

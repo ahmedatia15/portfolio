@@ -1,0 +1,49 @@
+---
+import { getImage } from 'astro:assets';
+import { clips, image } from '../lib/media';
+
+interface Props {
+  id: string;
+  /** Describes the clip; read by screen readers in place of the moving picture. */
+  label: string;
+  caption: string;
+  labels: { soundOn: string; soundOff: string; play: string; pause: string };
+  class?: string;
+  style?: string;
+}
+
+const { id, label, caption, labels, class: cls, style = '' } = Astro.props;
+const clip = clips[id];
+const posterSrc = image(`poster:${id}`);
+const poster = await getImage({ src: posterSrc, format: 'webp', width: Math.min(posterSrc.width, 1280), quality: 68 });
+---
+
+<figure class:list={['plate', 'reel', cls]} style={`--ratio: ${clip.width} / ${clip.height}; ${style}`} data-reveal>
+  <div class="plate-frame">
+    <video
+      data-reel
+      muted
+      loop
+      controls
+      playsinline
+      preload="none"
+      data-poster={poster.src}
+      width={clip.width}
+      height={clip.height}
+      aria-label={label}
+    >
+      <source src={clip.src} type="video/mp4" />
+    </video>
+    <div class="reel-controls">
+      <button type="button" class="reel-btn" data-reel-play aria-label={labels.play} data-label-play={labels.play} data-label-pause={labels.pause}>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-play"><path d="M6 4.5v11l9-5.5z" fill="currentColor" /></svg>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-pause"><path d="M6 4.5h2.6v11H6zM11.4 4.5H14v11h-2.6z" fill="currentColor" /></svg>
+      </button>
+      <button type="button" class="reel-btn" data-reel-sound aria-pressed="false" aria-label={labels.soundOn} data-label-on={labels.soundOn} data-label-off={labels.soundOff}>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-muted"><path d="M3.5 7.5h3l4-3.2v11.4l-4-3.2h-3z" fill="currentColor" /><path d="M13 7.5l4 5M17 7.5l-4 5" stroke="currentColor" stroke-width="1.5" fill="none" /></svg>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-sound"><path d="M3.5 7.5h3l4-3.2v11.4l-4-3.2h-3z" fill="currentColor" /><path d="M13.2 7.2a4 4 0 0 1 0 5.6M15.4 5a7 7 0 0 1 0 10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" /></svg>
+      </button>
+    </div>
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>

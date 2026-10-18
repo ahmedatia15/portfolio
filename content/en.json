@@ -1,0 +1,333 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "meta": {
+    "title": "Ahmed Atia | Social Media Specialist",
+    "description": "Led a 100+ member media team for a student tech community in Mansoura, Egypt. Content plans, event photography, and Meta ad campaigns.",
+    "ogAlt": "Ahmed Atia speaking on stage, with his name and title: Social Media Specialist."
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "label": "Sections",
+    "work": "Work",
+    "photography": "Photography",
+    "about": "About",
+    "contact": "Contact",
+    "switchTo": "ع",
+    "switchLabel": "اقرأ هذه الصفحة بالعربية",
+    "switchHref": "/ar/"
+  },
+  "hero": {
+    "name": "Ahmed Atia",
+    "role": "Social Media Specialist",
+    "tags": ["Content", "Photo", "Campaigns"],
+    "intro": "As Head of Media for a student tech community, I led a 100+ member media team. I planned the content, shot the events, and ran the campaigns.",
+    "location": "Mansoura, Egypt.",
+    "viewWork": "View work",
+    "downloadCv": "Download CV",
+    "cvHref": "/cv/Ahmed-Atia-CV.pdf"
+  },
+  "intro": {
+    "heading": "Introduction",
+    "script": "Hi, I'm Ahmed Atia. I capture, I write, I plan, I publish. And I measure what works. Social Media Specialist. Ready for your team?",
+    "hi": "Hi",
+    "name": "I'm Ahmed Atia",
+    "verbs": ["I capture", "I write", "I plan", "I publish"],
+    "measure": "And I measure what works.",
+    "title": "Social Media Specialist",
+    "question": "Ready for your team?",
+    "finalLine": "Ahmed Atia. I capture, write, plan and publish, and I measure what works.",
+    "pause": "Pause introduction",
+    "play": "Play introduction",
+    "replay": "Replay"
+  },
+  "snapshot": {
+    "heading": "In numbers",
+    "items": [
+      { "value": "100+", "label": "members in the media team I led" },
+      { "value": "6", "label": "creative circles I supervised" },
+      { "value": "7", "label": "events in the annual cycle" },
+      { "value": "445 / 50", "label": "conversations and paid enrollments from my own ad campaign" }
+    ]
+  },
+  "captions": {
+    "ledMedia": "Media I led",
+    "video": "Produced by the Video Editing circle under my direction.",
+    "photo": "Photographed by Ahmed Atia",
+    "soundOn": "Turn sound on",
+    "soundOff": "Turn sound off",
+    "play": "Play video",
+    "pause": "Pause video",
+    "view": "VIEW",
+    "open": "View larger",
+    "close": "Close"
+  },
+  "work": {
+    "heading": "Work",
+    "intro": "Seven projects. The first is my own product, with the ad numbers to go with it. The rest are CAT Reloaded events where I ran the media."
+  },
+  "cases": {
+    "canva": {
+      "title": "Canva Course",
+      "subtitle": "My own product launch",
+      "role": "Course, content, and paid ads: all mine.",
+      "body": [
+        "I built an online course, Earning from Design on Canva (⁨الربح من التصميم على كانفا⁩), and sold it myself, delivered through Google Drive.",
+        "To find students I ran a Meta Messaging campaign, so every ad opened a direct conversation.",
+        "I tested a video creative against an image creative. Both cost the same per conversation; the video started more of them."
+      ],
+      "resultsHeading": "Campaign results",
+      "results": [
+        { "value": "445", "label": "messaging conversations started" },
+        { "value": "EGP 2.72", "label": "cost per conversation" },
+        { "value": "50", "label": "paid enrollments" },
+        { "value": "11.2%", "label": "conversation to enrollment" },
+        { "value": "~EGP 24", "label": "per student" }
+      ],
+      "reach": [
+        { "value": "EGP 1,208", "label": "total spend" },
+        { "value": "17,420", "label": "reach" },
+        { "value": "31,184", "label": "impressions" }
+      ],
+      "abHeading": "A/B test: same cost, different pull",
+      "ab": [
+        { "label": "Video creative", "count": 252, "value": "252 conversations", "note": "57% of the total, EGP 2.71 each" },
+        { "label": "Image creative", "count": 193, "value": "193 conversations", "note": "EGP 2.72 each" }
+      ],
+      "mediaCaptions": {
+        "canva-01": "The ad",
+        "canva-02": "The course design"
+      }
+    },
+    "booth": {
+      "title": "CAT Booth",
+      "subtitle": "The season's launch event",
+      "role": "Led the media plan and coverage.",
+      "body": [
+        "The first and most important event of every CAT Reloaded season: the booth that introduces the foundation to students across faculties, including Fine Arts, Commerce, Engineering, and Computers & Information.",
+        "I led the media plan and the coverage."
+      ]
+    },
+    "helloworld": {
+      "title": "Hello World X",
+      "subtitle": "Speaker and media lead",
+      "role": "Spoke on stage; led the event's media coverage.",
+      "body": [
+        "CAT Reloaded's onboarding event for new students.",
+        "I gave a session on media from the stage, and led the media coverage of the event around it."
+      ]
+    },
+    "podcat": {
+      "title": "PodCAT",
+      "subtitle": "A tech podcast series",
+      "role": "Directed media and production.",
+      "body": [
+        "A podcast hosting well-known Egyptian technology figures, including Osama Elzero, Ahmed El-Emam, and Mohamed Fathy.",
+        "I directed its media and production."
+      ]
+    },
+    "station": {
+      "title": "CAT Station V.7",
+      "subtitle": "Training program launch",
+      "role": "Launch campaign.",
+      "body": [
+        "The launch campaign for CAT Reloaded's training program, across six technical tracks: Data Science, Back-End, Front-End, Flutter, UI/UX Design, and Cyber Security."
+      ]
+    },
+    "catathon": {
+      "title": "CATathon",
+      "subtitle": "Capture The Flag competition",
+      "role": "Promotion and registration campaign.",
+      "body": [
+        "The promotion and registration campaign for a cybersecurity Capture The Flag challenge."
+      ]
+    },
+    "scoop": {
+      "title": "CAT Scoop",
+      "subtitle": "Season finale",
+      "role": "Designed post set.",
+      "body": [
+        "The season's closing event, covered as a set of eight designed posts."
+      ]
+    }
+  },
+  "photography": {
+    "heading": "Photography",
+    "intro": "Shot on site: angles, light, and the moment."
+  },
+  "about": {
+    "heading": "About",
+    "portraitAlt": "Ahmed Atia in a black suit and tie, seated on a wooden bar stool against a grey wall.",
+    "roles": [
+      {
+        "title": "Head of Media",
+        "org": "CAT Reloaded, Mansoura University",
+        "period": "Season 2025/2026",
+        "summary": "CAT Reloaded is a non-profit student foundation focused on Computer Science, IT, and open-source technology.",
+        "points": [
+          "Led a media department of 100+ members across 6 circles: Photography & Videography, Video Editing, Graphic Design, Motion Graphics, Content Writing, and Marketing.",
+          "Ran the foundation's Facebook and Instagram pages: the content calendar, approvals, and posting-time strategy.",
+          "Supervised how new members were trained after recruitment, working with each circle head so skills were taught correctly.",
+          "Directed media for the full annual event cycle."
+        ]
+      },
+      {
+        "title": "Photographer & Videographer",
+        "org": "CAT Reloaded",
+        "period": "Season 2024/2025",
+        "summary": "Covered events as a member of the Photography & Videography circle: choosing angles, lighting, and shooting locations on site.",
+        "points": []
+      },
+      {
+        "title": "Content Creator",
+        "org": "Self-taught",
+        "period": "Since 2024",
+        "summary": "Taught myself content creation, then built and sold my own online Canva course.",
+        "points": []
+      }
+    ],
+    "languagesHeading": "Languages",
+    "languages": [
+      { "name": "Arabic", "level": "Native" },
+      { "name": "English", "level": "Professional working proficiency" }
+    ]
+  },
+  "howIWork": {
+    "heading": "How I work",
+    "items": [
+      { "label": "Leadership", "line": "Led a media department of 100+ members across 6 circles." },
+      { "label": "Mentoring", "line": "Supervised how newly recruited members were trained, working with each circle head." },
+      { "label": "Public speaking", "line": "Spoke at Hello World X in a session about media." },
+      { "label": "Working under pressure", "line": "Covered live events and published highlights the same day." },
+      { "label": "Bilingual communication", "line": "Wrote and reviewed content in Arabic and English." }
+    ]
+  },
+  "skills": {
+    "heading": "Skills",
+    "groups": [
+      { "name": "Strategy", "items": ["Social media strategy", "Content calendars", "Arabic & English copywriting", "Brand consistency", "Market & audience research"] },
+      { "name": "Paid", "items": ["Meta Ads: Messaging campaigns, A/B testing", "Ad performance reporting"] },
+      { "name": "Production", "items": ["Photography", "Videography direction", "Basic video editing & colour grading (CapCut)"] }
+    ]
+  },
+  "tools": {
+    "heading": "Tools",
+    "groups": [
+      {
+        "name": "Publishing & Scheduling",
+        "items": [
+          { "name": "Meta Business Suite", "logo": "meta-business-suite" },
+          { "name": "Buffer", "logo": "buffer" }
+        ]
+      },
+      {
+        "name": "Paid Advertising",
+        "items": [
+          { "name": "Meta Ads Manager", "logo": "meta-ads-manager" },
+          { "name": "TikTok Ads Manager", "logo": "tiktok" },
+          { "name": "Google Ads", "logo": "google-ads" },
+          { "name": "Snapchat Ads", "logo": "snapchat" }
+        ]
+      },
+      {
+        "name": "Analytics",
+        "items": [
+          { "name": "Meta Insights", "logo": "meta" },
+          { "name": "Instagram Insights", "logo": "instagram" },
+          { "name": "TikTok Analytics", "logo": "tiktok" },
+          { "name": "Google Analytics", "logo": "google-analytics" },
+          { "name": "YouTube Studio", "logo": "youtube-studio" }
+        ]
+      },
+      {
+        "name": "Design",
+        "items": [
+          { "name": "Canva", "logo": "canva" },
+          { "name": "Figma", "logo": "figma" }
+        ]
+      },
+      {
+        "name": "Photo & Capture",
+        "items": [
+          { "name": "Adobe Lightroom", "logo": "lightroom" },
+          { "name": "Adobe Camera Raw", "logo": "adobe" },
+          { "name": "Snapseed", "logo": "snapseed" },
+          { "name": "Blackmagic Camera", "logo": "blackmagic-camera" }
+        ]
+      },
+      {
+        "name": "AI",
+        "items": [
+          { "name": "ChatGPT", "logo": "chatgpt" },
+          { "name": "Claude", "logo": "claude" },
+          { "name": "Gemini", "logo": "gemini" },
+          { "name": "ElevenLabs", "logo": "elevenlabs" },
+          { "name": "Higgsfield", "logo": "higgsfield" }
+        ]
+      },
+      {
+        "name": "Collaboration",
+        "items": [
+          { "name": "Notion", "logo": "notion" },
+          { "name": "Google Workspace", "logo": "google-workspace" },
+          { "name": "Discord", "logo": "discord" }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact",
+    "line": "Hiring a social media specialist? Let's talk.",
+    "links": [
+      { "id": "email", "icon": "gmail", "label": "Email", "href": "mailto:engahmedatia15@gmail.com" },
+      { "id": "whatsapp", "icon": "whatsapp", "label": "WhatsApp", "href": "https://wa.me/201027344635" },
+      { "id": "tiktok", "icon": "tiktok", "label": "TikTok", "href": "https://www.tiktok.com/@a7medt.5" },
+      { "id": "instagram", "icon": "instagram", "label": "Instagram", "href": "https://www.instagram.com/ahmedt.5" },
+      { "id": "facebook", "icon": "facebook", "label": "Facebook", "href": "https://www.facebook.com/ahmed.atia.165416" }
+    ]
+  },
+  "footer": {
+    "note": "Event media from CAT Reloaded, Mansoura University. Photography section shot by Ahmed Atia.",
+    "top": "Back to top"
+  },
+  "alt": {
+    "speaker-01": "Ahmed Atia on stage holding a microphone, speaking in a university hall, with a slide titled Media vs. Social Media behind him.",
+    "speaker-slide": "Ahmed Atia mid-sentence with a microphone, next to his slide: Media is the craft. Social media is the place where the craft is displayed.",
+    "canva-01": "Square ad for the Canva course: a woman holding a laptop beside a numbered list of what the course covers, from content creation to book covers, with a Contact us button.",
+    "canva-02": "Arabic course design titled Earning from Design on Canva, set over a freelancer earnings dashboard, ending with a call to send a message and book a place.",
+    "booth-09": "CAT Reloaded members gathered on the steps of the Faculty of Computers and Information, behind large red CAT letters.",
+    "booth-01": "A CAT Reloaded member, seen from behind in the team polo, at the entrance of the Faculty of Fine Arts. Post for the CAT Booth day there.",
+    "booth-03": "Students crowded around a chess board at the CAT Booth, one weighing his next move.",
+    "booth-05": "A smiling student gives a thumbs up while holding a puzzle sheet at the booth.",
+    "booth-08": "Hands steadying a tall Jenga tower on a black-clothed table at the booth.",
+    "helloworld-01": "Hello World X post: Ahmed Atia speaking into a microphone on stage beside the Egyptian flag.",
+    "helloworld-03": "The Hello World X team posing on the stage under the event's title on the projector screen.",
+    "podcat-02": "PodCAT episode post: Osama Elzero smiling with a gold microphone. New episode out now.",
+    "podcat-01": "PodCAT quote card from guest Eng. Ahmed El-Emam, Senior Staff Software Engineer, on understanding software architecture before following trends.",
+    "station-01": "CAT Station launch post: a glitched CAT Station sign hanging like a platform board, over the line Not every path is on the map.",
+    "scoop-01": "Day 01 post: wide view of the hall, a two-person panel on stage and the audience in front.",
+    "scoop-02": "Day 01 post: the two panel speakers seated on stage, red SCOPE letters in front.",
+    "scoop-03": "Day 01 post: the panel from the side, a roll-up banner listing CAT Reloaded's technical circles behind.",
+    "scoop-04": "Day 01 post: students in the audience rows, listening.",
+    "scoop-05": "Day 01 post: two phones held up, one showing a QR code for registration.",
+    "scoop-06": "Day 01 post: a branded SCOPE 25 bag being handed over.",
+    "scoop-07": "Day 01 post: a student showing his phone at the registration desk outside.",
+    "scoop-08": "Day 01 post: rows of branded SCOPE 25 bags laid out on a table.",
+    "photography-01": "Gold calligraphy embroidered on dark fabric, a small sparrow perched on one of the letters.",
+    "photography-02": "A dense crowd in white seen through a carved stone arch, a gold structure rising in the middle.",
+    "photography-03": "A white mosque with two lit minarets at night, people crossing the marble courtyard.",
+    "photography-04": "A man fishing from the edge of a pier at dusk, the city skyline low on the water behind him.",
+    "photography-08": "Pigeons scattered across a paved plaza beside a glass office building, a crane against the evening sky.",
+    "photography-10": "A single white minaret against a blue sky streaked with cloud.",
+    "photography-11": "A mosque interior of striped arches under a ring chandelier, worshippers walking through.",
+    "photography-12": "The sun setting low over a dark, flat horizon, rays breaking through the clouds.",
+    "photography-13": "Grey sea meeting the shore under a heavy sky, a thin band of light on the horizon.",
+    "photography-15": "A paved waterfront promenade at night, street lamps flaring against a black sky."
+  },
+  "posters": {
+    "podcat-01": "Clip from a PodCAT episode: Osama Elzero answering a question, Arabic captions on screen.",
+    "podcat-02": "PodCAT season teaser ending on The PodCAT wordmark.",
+    "station-01": "Animated launch video for CAT Station: a traveller waiting on a platform under CAT Station boards.",
+    "catathon-01": "CATathon video: participants celebrating and holding up the event sign."
+  }
+}

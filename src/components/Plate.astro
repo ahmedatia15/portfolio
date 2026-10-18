@@ -1,0 +1,46 @@
+---
+import { Picture } from 'astro:assets';
+import { image, widthsFor } from '../lib/media';
+
+interface Props {
+  id: string;
+  alt: string;
+  /** `sizes` attribute: how wide this plate renders at each breakpoint. */
+  sizes: string;
+  /** Crop to this aspect ratio (e.g. "16 / 9"); defaults to the image's own. */
+  ratio?: string;
+  /** object-position for the crop, e.g. "50% 30%". */
+  position?: string;
+  eager?: boolean;
+  caption?: string;
+  class?: string;
+  style?: string;
+  /** Fade the plate in when it scrolls into view. Off for the hero (LCP). */
+  reveal?: boolean;
+  /** Gallery image: VIEW cursor and slow zoom on hover (desktop pointers only). */
+  view?: boolean;
+}
+
+const { id, alt, sizes, ratio, position, eager = false, caption, class: cls, style = '', reveal = true, view = false } = Astro.props;
+const img = image(id);
+const vars = `--ratio: ${ratio ?? `${img.width} / ${img.height}`};${position ? ` --pos: ${position};` : ''} ${style}`;
+---
+
+<figure class:list={['plate', cls]} style={vars} data-reveal={reveal ? '' : undefined} data-view={view ? '' : undefined}>
+  <div class="plate-frame">
+    <div class="plate-zoom">
+      <Picture
+        src={img}
+        alt={alt}
+        formats={['avif', 'webp']}
+        widths={widthsFor(img)}
+        sizes={sizes}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding={eager ? 'sync' : 'async'}
+        fetchpriority={eager ? 'high' : 'auto'}
+        quality={eager ? 52 : 58}
+      />
+    </div>
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

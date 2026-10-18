@@ -1,0 +1,31 @@
+{
+  "name": "site",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "assets": "node scripts/process-assets.mjs",
+    "brand": "node scripts/make-brand.mjs",
+    "logos": "node scripts/process-tool-logos.mjs",
+    "export-intro": "node scripts/export-intro.mjs",
+    "deploy": "npx vercel@latest --prod"
+  },
+  "dependencies": {
+    "@fontsource-variable/alexandria": "^5.3.0",
+    "@fontsource-variable/hanken-grotesk": "^5.3.0",
+    "@fontsource-variable/sofia-sans-extra-condensed": "^5.3.0",
+    "@fontsource/ibm-plex-sans-arabic": "^5.3.0",
+    "astro": "^7.4.0"
+  },
+  "devDependencies": {
+    "heic-convert": "^2.1.0",
+    "playwright-core": "^1.56.1",
+    "sharp": "^0.35.5"
+  }
+}

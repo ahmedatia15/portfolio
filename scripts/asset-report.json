@@ -1,0 +1,363 @@
+{
+  "generated": "2026-10-16T02:50:20.694Z",
+  "images": {
+    "manifest": [
+      {
+        "source": "00-Speaker-HelloWorldX\\IMG_3992.jpeg",
+        "output": "src/assets/media/speaker/speaker-01.jpg",
+        "width": 1800,
+        "height": 2400,
+        "sha256": "14a425fb0666"
+      },
+      {
+        "source": "01-CAT-Booth\\1.jpg",
+        "output": "src/assets/media/booth/booth-01.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "ea9227e3e5b4"
+      },
+      {
+        "source": "01-CAT-Booth\\2.jpg",
+        "output": "src/assets/media/booth/booth-02.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "ca58137ef91f"
+      },
+      {
+        "source": "01-CAT-Booth\\3.jpg",
+        "output": "src/assets/media/booth/booth-03.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "70bf1a80d407"
+      },
+      {
+        "source": "01-CAT-Booth\\4.jpg",
+        "output": "src/assets/media/booth/booth-04.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "f148be3004d3"
+      },
+      {
+        "source": "01-CAT-Booth\\5.jpg",
+        "output": "src/assets/media/booth/booth-05.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "901a147c9e12"
+      },
+      {
+        "source": "01-CAT-Booth\\6.jpg",
+        "output": "src/assets/media/booth/booth-06.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "98d16a573e61"
+      },
+      {
+        "source": "01-CAT-Booth\\7.jpg",
+        "output": "src/assets/media/booth/booth-07.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "9fe853457513"
+      },
+      {
+        "source": "01-CAT-Booth\\8.jpg",
+        "output": "src/assets/media/booth/booth-08.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "2e2c802d8563"
+      },
+      {
+        "source": "01-CAT-Booth\\Booth 1.jpg",
+        "output": "src/assets/media/booth/booth-09.jpg",
+        "width": 2400,
+        "height": 1800,
+        "sha256": "af4b43d6d42c"
+      },
+      {
+        "source": "02-Hello-World\\1.jpg",
+        "output": "src/assets/media/helloworld/helloworld-01.jpg",
+        "width": 1056,
+        "height": 1320,
+        "sha256": "76f79d19c69d"
+      },
+      {
+        "source": "02-Hello-World\\2.jpg",
+        "output": "src/assets/media/helloworld/helloworld-02.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "db80fc22df71"
+      },
+      {
+        "source": "02-Hello-World\\Hello world.heif",
+        "output": "src/assets/media/helloworld/helloworld-03.jpg",
+        "width": 2400,
+        "height": 1800,
+        "sha256": "5ddf652b0dc0"
+      },
+      {
+        "source": "03-PodCAT\\@r07qxo  - R⤓Download.JPEG",
+        "output": "src/assets/media/podcat/podcat-01.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "4b90d44ee391"
+      },
+      {
+        "source": "03-PodCAT\\@r07qxo  - R⤓Download(1).JPEG",
+        "output": "src/assets/media/podcat/podcat-02.jpg",
+        "width": 1080,
+        "height": 1350,
+        "sha256": "7c2f933f692e"
+      },
+      {
+        "source": "04-CAT-Station\\@r07qxo  - R⤓Download.JPEG",
+        "output": "src/assets/media/station/station-01.jpg",
+        "width": 1080,
+        "height": 1080,
+        "sha256": "9a70ca9e7c0c"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_000.png",
+        "output": "src/assets/media/scoop/scoop-01.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "6271ff6680e1"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_001.png",
+        "output": "src/assets/media/scoop/scoop-02.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "b6043d92f181"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_002.png",
+        "output": "src/assets/media/scoop/scoop-03.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "faa04ee6d63c"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_003.png",
+        "output": "src/assets/media/scoop/scoop-04.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "c6e6b62f28ca"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_004.png",
+        "output": "src/assets/media/scoop/scoop-05.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "b0a429bd4525"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_005.png",
+        "output": "src/assets/media/scoop/scoop-06.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "425d7d628402"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_006.png",
+        "output": "src/assets/media/scoop/scoop-07.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "da0e75981bbd"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_007.png",
+        "output": "src/assets/media/scoop/scoop-08.png",
+        "width": 1077,
+        "height": 564,
+        "sha256": "3fe28067644a"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_008.png",
+        "duplicateOf": "src/assets/media/scoop/scoop-05.png"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_009.png",
+        "duplicateOf": "src/assets/media/scoop/scoop-06.png"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_010.png",
+        "duplicateOf": "src/assets/media/scoop/scoop-07.png"
+      },
+      {
+        "source": "06-CAT-Scoop\\File_011.png",
+        "duplicateOf": "src/assets/media/scoop/scoop-08.png"
+      },
+      {
+        "source": "07-My-Photography\\@r07qxo - R⤓Download.JPEG",
+        "output": "src/assets/media/photography/photography-01.jpg",
+        "width": 1351,
+        "height": 2400,
+        "sha256": "6a0db9e0ac29"
+      },
+      {
+        "source": "07-My-Photography\\@r07qxo - R⤓Download.jpg",
+        "output": "src/assets/media/photography/photography-02.jpg",
+        "width": 1780,
+        "height": 2225,
+        "sha256": "76e41a0a55e0"
+      },
+      {
+        "source": "07-My-Photography\\@r07qxo - R⤓Download(1).JPEG",
+        "output": "src/assets/media/photography/photography-03.jpg",
+        "width": 1350,
+        "height": 2400,
+        "sha256": "29ce2fea458c"
+      },
+      {
+        "source": "07-My-Photography\\80CD09B6-5548-40F2-94B1-1DD18B7627B3.jpg",
+        "output": "src/assets/media/photography/photography-04.jpg",
+        "width": 1106,
+        "height": 1966,
+        "sha256": "f4cf81f6db4c"
+      },
+      {
+        "source": "07-My-Photography\\AFF49DBC-7D20-44F5-8515-8C6032EE8EDF.jpg",
+        "output": "src/assets/media/photography/photography-05.jpg",
+        "width": 1135,
+        "height": 2018,
+        "sha256": "b91216d76e32"
+      },
+      {
+        "source": "07-My-Photography\\IMG_0043.HEIC",
+        "output": "src/assets/media/photography/photography-06.jpg",
+        "width": 1350,
+        "height": 2400,
+        "sha256": "854069f353f7"
+      },
+      {
+        "source": "07-My-Photography\\IMG_0089.jpg",
+        "output": "src/assets/media/photography/photography-07.jpg",
+        "width": 949,
+        "height": 1687,
+        "sha256": "d6264ca49245"
+      },
+      {
+        "source": "07-My-Photography\\IMG_1637.heic",
+        "output": "src/assets/media/photography/photography-08.jpg",
+        "width": 1350,
+        "height": 2400,
+        "sha256": "c3a555987a60"
+      },
+      {
+        "source": "07-My-Photography\\IMG_1699.HEIC",
+        "output": "src/assets/media/photography/photography-09.jpg",
+        "width": 1800,
+        "height": 2400,
+        "sha256": "3a21fba97247"
+      },
+      {
+        "source": "07-My-Photography\\IMG_1704.heic",
+        "output": "src/assets/media/photography/photography-10.jpg",
+        "width": 1455,
+        "height": 1940,
+        "sha256": "c3dd47c27103"
+      },
+      {
+        "source": "07-My-Photography\\IMG_2013.heic",
+        "output": "src/assets/media/photography/photography-11.jpg",
+        "width": 1350,
+        "height": 2400,
+        "sha256": "e62e983787a5"
+      },
+      {
+        "source": "07-My-Photography\\IMG_2385.HEIC",
+        "output": "src/assets/media/photography/photography-12.jpg",
+        "width": 1800,
+        "height": 2400,
+        "sha256": "a492e055e79e"
+      },
+      {
+        "source": "07-My-Photography\\IMG_3248.heic",
+        "output": "src/assets/media/photography/photography-13.jpg",
+        "width": 1920,
+        "height": 2400,
+        "sha256": "37be1a447f56"
+      },
+      {
+        "source": "07-My-Photography\\IMG_4906.JPG",
+        "output": "src/assets/media/photography/photography-14.jpg",
+        "width": 1242,
+        "height": 2208,
+        "sha256": "109ec769e12b"
+      },
+      {
+        "source": "07-My-Photography\\IMG_9118.HEIC",
+        "output": "src/assets/media/photography/photography-15.jpg",
+        "width": 1800,
+        "height": 2400,
+        "sha256": "7a797ffb4dec"
+      },
+      {
+        "source": "08-Canva-Course\\Canva.PNG",
+        "output": "src/assets/media/canva/canva-01.png",
+        "width": 1080,
+        "height": 1080,
+        "sha256": "4edcfee08dd1"
+      },
+      {
+        "source": "08-Canva-Course\\الربح من التصميم علي كانفا1.png",
+        "output": "src/assets/media/canva/canva-02.png",
+        "width": 1080,
+        "height": 1080,
+        "sha256": "eeb06c90a828"
+      },
+      {
+        "source": "Me head of media.jpg",
+        "output": "src/assets/media/portrait/portrait.jpg",
+        "width": 2048,
+        "height": 2048,
+        "sha256": "3570249a6763"
+      }
+    ],
+    "problems": []
+  },
+  "videos": {
+    "manifest": [
+      {
+        "source": "03-PodCAT\\@r07qxo  - R⤓Download.MP4",
+        "output": "public/media/video/podcat-01.mp4",
+        "poster": "src/assets/media/posters/podcat-01.jpg",
+        "width": 720,
+        "height": 1280,
+        "duration": 31.3,
+        "bytes": 2928809
+      },
+      {
+        "source": "03-PodCAT\\@r07qxo  - R⤓Download(1).MP4",
+        "output": "public/media/video/podcat-02.mp4",
+        "poster": "src/assets/media/posters/podcat-02.jpg",
+        "width": 720,
+        "height": 720,
+        "duration": 13.1,
+        "bytes": 659775
+      },
+      {
+        "source": "04-CAT-Station\\@r07qxo  - R⤓Download.MP4",
+        "output": "public/media/video/station-01.mp4",
+        "poster": "src/assets/media/posters/station-01.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 21.9,
+        "bytes": 1764368
+      },
+      {
+        "source": "05-CATathon\\@r07qxo  - R⤓Download.MP4",
+        "output": "public/media/video/catathon-01.mp4",
+        "poster": "src/assets/media/posters/catathon-01.jpg",
+        "width": 1276,
+        "height": 718,
+        "duration": 22.7,
+        "bytes": 2730624
+      },
+      {
+        "source": "08-Canva-Course\\ad v.mp4",
+        "skipped": "left off the site at Ahmed's request"
+      }
+    ],
+    "problems": []
+  }
+}

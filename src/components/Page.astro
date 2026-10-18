@@ -1,0 +1,476 @@
+---
+import '@fontsource-variable/sofia-sans-extra-condensed';
+import '@fontsource-variable/hanken-grotesk';
+import '@fontsource-variable/alexandria';
+import '@fontsource/ibm-plex-sans-arabic/400.css';
+import '@fontsource/ibm-plex-sans-arabic/600.css';
+import '../styles/global.css';
+import sofiaLatin from '@fontsource-variable/sofia-sans-extra-condensed/files/sofia-sans-extra-condensed-latin-wght-normal.woff2?url';
+import hankenLatin from '@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url';
+import alexandriaArabic from '@fontsource-variable/alexandria/files/alexandria-arabic-wght-normal.woff2?url';
+import plexArabic from '@fontsource/ibm-plex-sans-arabic/files/ibm-plex-sans-arabic-arabic-400-normal.woff2?url';
+import plexArabic600 from '@fontsource/ibm-plex-sans-arabic/files/ibm-plex-sans-arabic-arabic-600-normal.woff2?url';
+import plexLatin from '@fontsource/ibm-plex-sans-arabic/files/ibm-plex-sans-arabic-latin-400-normal.woff2?url';
+import plexLatin600 from '@fontsource/ibm-plex-sans-arabic/files/ibm-plex-sans-arabic-latin-600-normal.woff2?url';
+import alexandriaLatin from '@fontsource-variable/alexandria/files/alexandria-latin-wght-normal.woff2?url';
+
+import Plate from './Plate.astro';
+import Reel from './Reel.astro';
+import Intro from './Intro.astro';
+import type en from '../../content/en.json';
+import toolLogos from '../lib/tool-logos.json';
+import socialIcons from '../lib/social-icons.json';
+
+interface Props {
+  t: typeof en;
+}
+
+const { t } = Astro.props;
+const c = t.cases;
+const alt = t.alt as Record<string, string>;
+const posters = t.posters as Record<string, string>;
+const reelLabels = t.captions;
+const isAr = t.lang === 'ar';
+
+const site = Astro.site!;
+const enUrl = new URL('/', site).href;
+const arUrl = new URL('/ar/', site).href;
+const canonical = isAr ? arUrl : enUrl;
+const ogImage = new URL(isAr ? '/og-ar.jpg' : '/og.jpg', site).href;
+
+// Preload only the faces the first viewport sets, per language.
+const preloadFonts = isAr ? [alexandriaArabic, plexArabic, alexandriaLatin, plexLatin, plexArabic600, plexLatin600] : [sofiaLatin, hankenLatin];
+
+const abMax = Math.max(...c.canva.ab.map((r) => r.count));
+
+// Photography wall: rows of the exhibition, read in order. `span` is the share of a 12-column row.
+const photoRows = [
+  [
+    { id: 'photography-01', span: 4, ratio: '3 / 4', position: '50% 50%' },
+    { id: 'photography-02', span: 5, ratio: '4 / 5', position: '50% 55%' },
+    { id: 'photography-03', span: 3, ratio: '9 / 16', position: '50% 50%', mspan: 2, mratio: '4 / 5' },
+  ],
+  [
+    { id: 'photography-12', span: 7, ratio: '16 / 10', position: '50% 62%', mspan: 2 },
+    { id: 'photography-04', span: 5, ratio: '4 / 5', position: '50% 70%' },
+  ],
+  [
+    { id: 'photography-11', span: 4, ratio: '3 / 4', position: '50% 40%' },
+    { id: 'photography-13', span: 8, ratio: '2 / 1', position: '50% 48%', mspan: 2 },
+  ],
+  [
+    { id: 'photography-10', span: 4, ratio: '2 / 3', position: '50% 40%' },
+    { id: 'photography-08', span: 4, ratio: '1 / 1', position: '50% 72%' },
+    { id: 'photography-15', span: 4, ratio: '4 / 5', position: '50% 60%', mspan: 2, mratio: '1 / 1' },
+  ],
+];
+const logos = toolLogos as Record<string, { src: string; w: number; h: number }>;
+// Nominal logo box in px, for the width/height attributes that reserve space before CSS applies.
+const LOGO_BOX = 56;
+
+const scoopIds = Array.from({ length: 8 }, (_, i) => `scoop-0${i + 1}`);
+---
+
+<!doctype html>
+<html lang={t.lang} dir={t.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="ar" href={arUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
+    {preloadFonts.map((href) => <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />)}
+    <meta name="theme-color" content="#151311" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t.meta.ogAlt} />
+    <meta property="og:locale" content={isAr ? 'ar_AR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={isAr ? 'en_US' : 'ar_AR'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={t.meta.ogAlt} />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">{t.nav.skip}</a>
+
+    <nav class="topbar" aria-label={t.nav.label}>
+      <a class="mark" href="#top">{t.hero.name}</a>
+      <ul class="topbar-links">
+        <li><a href="#work">{t.nav.work}</a></li>
+        <li class="opt"><a href="#photography">{t.nav.photography}</a></li>
+        <li><a href="#about">{t.nav.about}</a></li>
+        <li><a href="#contact">{t.nav.contact}</a></li>
+      </ul>
+      <p class="lang">
+        <span class="lang-current" aria-hidden="true">{isAr ? 'ع' : 'EN'}</span>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a href={t.nav.switchHref} hreflang={isAr ? 'en' : 'ar'} lang={isAr ? 'en' : 'ar'}>{t.nav.switchTo}<span class="sr-only"> {t.nav.switchLabel}</span></a>
+      </p>
+    </nav>
+
+    <header class="hero" id="top">
+      <Plate
+        id="speaker-01"
+        alt={alt['speaker-01']}
+        sizes="100vw"
+        eager
+        reveal={false}
+        class="hero-plate"
+      />
+      <div class="hero-copy">
+        <h1 class="hero-name">{t.hero.name}</h1>
+        <p class="hero-role">
+          <span>{t.hero.role}</span>
+          <span class="hero-tags">{t.hero.tags.join(' · ')}</span>
+        </p>
+        <p class="hero-intro">{t.hero.intro}</p>
+        <p class="hero-loc">{t.hero.location}</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="#work">{t.hero.viewWork}</a>
+          <!-- TODO(Ahmed): add the file at site/public/cv/Ahmed-Atia-CV.pdf -->
+          <a class="btn btn-line" href={t.hero.cvHref} download>{t.hero.downloadCv}</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <Intro t={t} />
+
+      <section class="snapshot wrap" aria-labelledby="snapshot-h">
+        <h2 id="snapshot-h" class="sr-only">{t.snapshot.heading}</h2>
+        <dl class="ledger">
+          {t.snapshot.items.map((item) => (
+            <div class="ledger-row">
+              <dt class="ledger-value">{item.value}</dt>
+              <dd class="ledger-label">{item.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section class="work" id="work" aria-labelledby="work-h">
+        <div class="wrap section-head">
+          <h2 id="work-h" class="display-xl">{t.work.heading}</h2>
+          <p class="section-intro">{t.work.intro}</p>
+        </div>
+
+        <!-- Canva Course: the lead case, the only one with paid-ads data -->
+        <article class="case case-canva wrap" id="case-canva" aria-labelledby="canva-h">
+          <header class="case-head">
+            <h3 id="canva-h" class="case-title">{c.canva.title}</h3>
+            <p class="case-sub">{c.canva.subtitle}</p>
+          </header>
+          <div class="case-text">
+            <p class="case-role">{c.canva.role}</p>
+            {c.canva.body.map((p) => <p>{p}</p>)}
+          </div>
+
+          <div class="results">
+            <h4 class="results-h">{c.canva.resultsHeading}</h4>
+            <dl class="results-main">
+              {c.canva.results.map((r) => (
+                <div>
+                  <dt>{r.label}</dt>
+                  <dd>{r.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <dl class="results-reach">
+              {c.canva.reach.map((r) => (
+                <div>
+                  <dt>{r.label}</dt>
+                  <dd>{r.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div class="ab">
+              <h4 class="results-h">{c.canva.abHeading}</h4>
+              <ul class="ab-rows">
+                {c.canva.ab.map((r, i) => (
+                  <li class:list={['ab-row', { 'ab-lead': i === 0 }]}>
+                    <span class="ab-label">{r.label}</span>
+                    <span class="ab-bar" style={`--w: ${(r.count / abMax) * 100}%`} aria-hidden="true"><span></span></span>
+                    <span class="ab-value">{r.value}</span>
+                    <span class="ab-note">{r.note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="gallery g-canva">
+            <Plate id="canva-01" alt={alt['canva-01']} caption={c.canva.mediaCaptions['canva-01']} sizes="(min-width: 64em) 30vw, 50vw" view class="p1" />
+            <Plate id="canva-02" alt={alt['canva-02']} caption={c.canva.mediaCaptions['canva-02']} sizes="(min-width: 64em) 30vw, 50vw" view class="p2" />
+          </div>
+        </article>
+
+        <article class="case wrap" id="case-booth" aria-labelledby="booth-h">
+          <header class="case-head">
+            <h3 id="booth-h" class="case-title">{c.booth.title}</h3>
+            <p class="case-sub">{c.booth.subtitle}</p>
+          </header>
+          <div class="case-text">
+            <p class="case-role">{c.booth.role}</p>
+            {c.booth.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="gallery g-booth">
+            <Plate id="booth-09" alt={alt['booth-09']} sizes="(min-width: 64em) 62vw, 100vw" view class="p1" />
+            <Plate id="booth-01" alt={alt['booth-01']} sizes="(min-width: 64em) 30vw, 100vw" view class="p2" />
+            <Plate id="booth-03" alt={alt['booth-03']} sizes="(min-width: 64em) 30vw, 50vw" view class="p3" />
+            <Plate id="booth-05" alt={alt['booth-05']} sizes="(min-width: 64em) 30vw, 50vw" view class="p4" />
+            <Plate id="booth-08" alt={alt['booth-08']} sizes="(min-width: 64em) 22vw, 100vw" view class="p5" ratio="4 / 3" position="50% 60%" />
+          </div>
+          <p class="credit">{t.captions.ledMedia}</p>
+        </article>
+
+        <article class="case wrap" id="case-helloworld" aria-labelledby="hw-h">
+          <header class="case-head">
+            <h3 id="hw-h" class="case-title">{c.helloworld.title}</h3>
+            <p class="case-sub">{c.helloworld.subtitle}</p>
+          </header>
+          <div class="case-text">
+            <p class="case-role">{c.helloworld.role}</p>
+            {c.helloworld.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="gallery g-hw">
+            <Plate id="speaker-slide" alt={alt['speaker-slide']} sizes="(min-width: 64em) 58vw, 100vw" view class="p1" />
+            <Plate id="helloworld-01" alt={alt['helloworld-01']} sizes="(min-width: 64em) 30vw, 50vw" view class="p2" />
+            <Plate id="helloworld-03" alt={alt['helloworld-03']} sizes="(min-width: 64em) 75vw, 100vw" view class="p3" />
+          </div>
+          <p class="credit">{t.captions.ledMedia}</p>
+        </article>
+
+        <article class="case wrap" id="case-podcat" aria-labelledby="pod-h">
+          <header class="case-head">
+            <h3 id="pod-h" class="case-title">{c.podcat.title}</h3>
+            <p class="case-sub">{c.podcat.subtitle}</p>
+          </header>
+          <div class="case-text">
+            <p class="case-role">{c.podcat.role}</p>
+            {c.podcat.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="gallery g-pod">
+            <Reel id="podcat-01" label={posters['podcat-01']} caption={t.captions.video} labels={reelLabels} class="p1" />
+            <Plate id="podcat-02" alt={alt['podcat-02']} sizes="(min-width: 64em) 30vw, 50vw" view class="p2" />
+            <Plate id="podcat-01" alt={alt['podcat-01']} sizes="(min-width: 64em) 30vw, 50vw" view class="p3" />
+            <Reel id="podcat-02" label={posters['podcat-02']} caption={t.captions.video} labels={reelLabels} class="p4" />
+          </div>
+          <p class="credit">{t.captions.ledMedia}</p>
+        </article>
+
+        <article class="case wrap" id="case-station" aria-labelledby="st-h">
+          <header class="case-head">
+            <h3 id="st-h" class="case-title">{c.station.title}</h3>
+            <p class="case-sub">{c.station.subtitle}</p>
+          </header>
+          <div class="case-text">
+            <p class="case-role">{c.station.role}</p>
+            {c.station.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="gallery g-station">
+            <Reel id="station-01" label={posters['station-01']} caption={t.captions.video} labels={reelLabels} class="p1" />
+            <Plate id="station-01" alt={alt['station-01']} sizes="(min-width: 64em) 30vw, 100vw" view class="p2" />
+          </div>
+          <p class="credit">{t.captions.ledMedia}</p>
+        </article>
+
+        <article class="case wrap" id="case-catathon" aria-labelledby="ctf-h">
+          <header class="case-head">
+            <h3 id="ctf-h" class="case-title">{c.catathon.title}</h3>
+            <p class="case-sub">{c.catathon.subtitle}</p>
+          </header>
+          <div class="case-text">
+            <p class="case-role">{c.catathon.role}</p>
+            {c.catathon.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="gallery g-ctf">
+            <Reel id="catathon-01" label={posters['catathon-01']} caption={t.captions.video} labels={reelLabels} class="p1" />
+          </div>
+        </article>
+
+        <article class="case wrap" id="case-scoop" aria-labelledby="scoop-h">
+          <header class="case-head">
+            <h3 id="scoop-h" class="case-title">{c.scoop.title}</h3>
+            <p class="case-sub">{c.scoop.subtitle}</p>
+          </header>
+          <div class="case-text">
+            <p class="case-role">{c.scoop.role}</p>
+            {c.scoop.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="gallery g-scoop">
+            {scoopIds.map((id) => <Plate id={id} alt={alt[id]} sizes="(min-width: 48em) 45vw, 100vw" view />)}
+          </div>
+          <p class="credit">{t.captions.ledMedia}</p>
+        </article>
+      </section>
+
+      <section class="photography" id="photography" aria-labelledby="photo-h">
+        <div class="wrap section-head">
+          <h2 id="photo-h" class="display-xl">{t.photography.heading}</h2>
+          <p class="section-intro">{t.photography.intro}</p>
+        </div>
+        <div class="wall wrap">
+          {photoRows.map((row) => (
+            <div class="wall-row">
+              {row.map((p) => (
+                <Plate
+                  id={p.id}
+                  alt={alt[p.id]}
+                  ratio={p.ratio}
+                  position={p.position}
+                  sizes={`(min-width: 48em) ${Math.round((p.span / 12) * 92)}vw, ${(p.mspan ?? 1) * 50}vw`}
+                  style={`--span: ${p.span}; --mspan: ${p.mspan ?? 1};${p.mratio ? ` --mratio: ${p.mratio};` : ''}`}
+                  view
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+        <p class="credit wrap">{t.captions.photo}</p>
+      </section>
+
+      <section class="about wrap" id="about" aria-labelledby="about-h">
+        <h2 id="about-h" class="display-xl">{t.about.heading}</h2>
+        <Plate id="portrait-crop" alt={t.about.portraitAlt} sizes="(min-width: 64em) 28vw, 70vw" class="about-portrait" />
+        <div class="about-body">
+          <ol class="roles">
+            {t.about.roles.map((r) => (
+              <li class="role">
+                <h3 class="role-title">{r.title}</h3>
+                <p class="role-meta"><span>{r.org}</span> <span class="role-period">{r.period}</span></p>
+                <p class="role-summary">{r.summary}</p>
+                {r.points.length > 0 && (
+                  <ul class="role-points">
+                    {r.points.map((pt) => <li>{pt}</li>)}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ol>
+          <div class="langs">
+            <h3 class="small-h">{t.about.languagesHeading}</h3>
+            <ul>
+              {t.about.languages.map((l) => (
+                <li><span class="lang-name">{l.name}</span> <span class="lang-level">{l.level}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="howwork wrap" id="how-i-work" aria-labelledby="how-h">
+        <h2 id="how-h" class="display-l">{t.howIWork.heading}</h2>
+        <dl class="howwork-list">
+          {t.howIWork.items.map((item) => (
+            <div class="howwork-row">
+              <dt class="howwork-label">{item.label}</dt>
+              <dd class="howwork-line">{item.line}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section class="skills wrap" id="skills" aria-labelledby="skills-h">
+        <h2 id="skills-h" class="display-l">{t.skills.heading}</h2>
+        <div class="skill-groups">
+          {t.skills.groups.map((g) => (
+            <div class="skill-group">
+              <h3 class="small-h">{g.name}</h3>
+              <ul>{g.items.map((s) => <li>{s}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="tools wrap" id="tools" aria-labelledby="tools-h">
+        <h2 id="tools-h" class="display-l">{t.tools.heading}</h2>
+        <div class="tool-groups">
+          {t.tools.groups.map((g) => (
+            <div class="tool-group">
+              <h3 class="tool-group-h">{g.name}</h3>
+              <ul class="tool-grid" role="list">
+                {g.items.map((tool) => {
+                  const logo = logos[tool.logo];
+                  return (
+                    <li class="tool" data-tilt>
+                      <div class="tool-face">
+                        <span class="tool-logo">
+                          <img
+                            src={logo.src}
+                            alt=""
+                            width={Math.round(logo.w * LOGO_BOX)}
+                            height={Math.round(logo.h * LOGO_BOX)}
+                            style={`--w: ${logo.w}; --h: ${logo.h}`}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </span>
+                        <span class="tool-name">{tool.name}</span>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="contact wrap" id="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h" class="contact-line">{t.contact.line}</h2>
+        <ul class="contact-links">
+          {t.contact.links.map((l) => (
+            <li>
+              <a
+                href={l.href}
+                aria-label={l.label}
+                title={l.label}
+                target={l.href.startsWith('http') ? '_blank' : undefined}
+                rel={l.href.startsWith('http') ? 'noopener' : undefined}
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true" set:html={socialIcons[l.icon as keyof typeof socialIcons]} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <p>{t.footer.note}</p>
+      <a href="#top">{t.footer.top}</a>
+    </footer>
+
+    <div class="view-cursor" aria-hidden="true"><span>{t.captions.view}</span></div>
+
+    <!-- Gallery lightbox: page.ts adds an open button to each [data-view] plate and fills the stage. -->
+    <dialog class="lightbox" aria-label={t.captions.open} data-open-label={t.captions.open}>
+      <button type="button" class="lightbox-close" aria-label={t.captions.close}>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.5" fill="none" /></svg>
+      </button>
+      <div class="lightbox-stage"></div>
+    </dialog>
+
+    <script>
+      import { initPage } from '../scripts/page';
+      initPage();
+    </script>
+  </body>
+</html>

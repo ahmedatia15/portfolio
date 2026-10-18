@@ -1,0 +1,122 @@
+{
+  "adobe": {
+    "src": "/tools/adobe.svg",
+    "w": 0.946,
+    "h": 0.839
+  },
+  "blackmagic-camera": {
+    "src": "/tools/blackmagic-camera.webp",
+    "w": 0.757,
+    "h": 0.757
+  },
+  "buffer": {
+    "src": "/tools/buffer.svg",
+    "w": 0.875,
+    "h": 0.896
+  },
+  "canva": {
+    "src": "/tools/canva.svg",
+    "w": 0.806,
+    "h": 0.806
+  },
+  "chatgpt": {
+    "src": "/tools/chatgpt.svg",
+    "w": 0.934,
+    "h": 0.934
+  },
+  "claude": {
+    "src": "/tools/claude.svg",
+    "w": 0.91,
+    "h": 0.91
+  },
+  "discord": {
+    "src": "/tools/discord.svg",
+    "w": 0.937,
+    "h": 0.728
+  },
+  "elevenlabs": {
+    "src": "/tools/elevenlabs.svg",
+    "w": 0.585,
+    "h": 0.93
+  },
+  "figma": {
+    "src": "/tools/figma.svg",
+    "w": 0.677,
+    "h": 1.008
+  },
+  "gemini": {
+    "src": "/tools/gemini.svg",
+    "w": 0.925,
+    "h": 0.932
+  },
+  "google-ads": {
+    "src": "/tools/google-ads.svg",
+    "w": 0.909,
+    "h": 0.82
+  },
+  "google-analytics": {
+    "src": "/tools/google-analytics.svg",
+    "w": 0.847,
+    "h": 0.935
+  },
+  "google-workspace": {
+    "src": "/tools/google-workspace.svg",
+    "w": 0.866,
+    "h": 0.883
+  },
+  "higgsfield": {
+    "src": "/tools/higgsfield.svg",
+    "w": 0.77,
+    "h": 0.77
+  },
+  "instagram": {
+    "src": "/tools/instagram.svg",
+    "w": 0.77,
+    "h": 0.77
+  },
+  "lightroom": {
+    "src": "/tools/lightroom.svg",
+    "w": 0.78,
+    "h": 0.758
+  },
+  "meta-ads-manager": {
+    "src": "/tools/meta-ads-manager.webp",
+    "w": 0.792,
+    "h": 0.792
+  },
+  "meta-business-suite": {
+    "src": "/tools/meta-business-suite.webp",
+    "w": 0.866,
+    "h": 0.869
+  },
+  "meta": {
+    "src": "/tools/meta.svg",
+    "w": 1.094,
+    "h": 0.735
+  },
+  "notion": {
+    "src": "/tools/notion.svg",
+    "w": 0.701,
+    "h": 0.733
+  },
+  "snapchat": {
+    "src": "/tools/snapchat.svg",
+    "w": 0.77,
+    "h": 0.77
+  },
+  "snapseed": {
+    "src": "/tools/snapseed.webp",
+    "w": 0.644,
+    "h": 1.025
+  },
+  "tiktok": {
+    "src": "/tools/tiktok.svg",
+    "w": 0.837,
+    "h": 0.944
+  },
+  "youtube-studio": {
+    "src": "/tools/youtube-studio.webp",
+    "w": 0.746,
+    "h": 0.849
+  }
+}
