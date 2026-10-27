@@ -1,15 +1,18 @@
-/* Cinematic exhibition. One ground, one text colour, one amber. Logical properties throughout
-   so the Arabic page mirrors without overrides. */
+/* Soft Stone: a calm, light exhibition wall. One ground, one ink, one deep teal accent. Logical
+   properties throughout so the Arabic page mirrors without overrides. */
 
 :root {
-  --ground: #151311;
-  --raise: #1d1a17;
-  --line: #2f2a25;
-  --text: #ede7dd;
-  --text-2: #cfc8bd;
-  --muted: #a59d92;
-  --amber: #dba25b;
-  --amber-hi: #e8b979;
+  --ground: #f3f3f0;
+  --raise: #e8e7e2;
+  --line: #d5d3cc;
+  --text: #1f2328;
+  --text-2: #3c434a;
+  --muted: #5f666e;
+  --accent: #0e6b6b;
+  --accent-hi: #13807f;
+  /* Channels of ground and ink, for translucent washes over photos and video. */
+  --ground-rgb: 243 243 240;
+  --ink-rgb: 31 35 40;
 
   --f-display: 'Sofia Sans Extra Condensed Variable', 'Alexandria Variable', 'Arial Narrow', sans-serif;
   --f-text: 'Hanken Grotesk Variable', 'IBM Plex Sans Arabic', system-ui, sans-serif;
@@ -26,7 +29,7 @@
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 :lang(ar) {
@@ -44,7 +47,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scrollbar-color: #3b352f var(--ground);
+  scrollbar-color: var(--line) var(--ground);
 }
 
 body {
@@ -66,7 +69,7 @@ body:lang(ar) {
 }
 
 ::selection {
-  background: var(--amber);
+  background: var(--accent);
   color: var(--ground);
 }
 
@@ -103,11 +106,11 @@ a {
 }
 
 a:hover {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 :focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -129,7 +132,7 @@ a:hover {
   inset-inline-start: var(--s1);
   z-index: 50;
   padding: var(--s1) var(--s2);
-  background: var(--amber);
+  background: var(--accent);
   color: var(--ground);
   font-weight: 600;
   transform: translateY(-200%);
@@ -254,9 +257,12 @@ figcaption {
   gap: clamp(0.9rem, 2.4vw, 2.25rem);
 }
 
+/* min-inline-size keeps short labels (Arabic نبذة) at the 24px minimum target. */
 .topbar-links a,
 .lang a {
   display: inline-block;
+  min-inline-size: 1.75rem;
+  text-align: center;
   padding-block: 0.6rem;
   text-decoration: none;
   color: var(--text);
@@ -264,7 +270,7 @@ figcaption {
 
 .topbar-links a:hover,
 .lang a:hover {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .lang {
@@ -272,11 +278,11 @@ figcaption {
   align-items: center;
   gap: 0.4rem;
   padding-inline-start: var(--s3);
-  border-inline-start: 1px solid rgb(237 231 221 / 0.28);
+  border-inline-start: 1px solid rgb(var(--ink-rgb) / 0.2);
 }
 
 .lang-current {
-  color: var(--amber);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -339,18 +345,18 @@ figcaption {
 }
 
 .hero-plate img {
-  filter: brightness(0.86) contrast(1.06) saturate(0.86);
+  filter: saturate(0.92);
 }
 
-/* Grade the frame into the page: darker at the foot where the type sits, and at the head under the bar. */
+/* Grade the frame into the page: washed to the ground at the foot where the type sits, and at the head under the bar. */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to bottom, rgb(21 19 17 / 0.72) 0, rgb(21 19 17 / 0) 7rem),
-    linear-gradient(to top, var(--ground) 0, rgb(21 19 17 / 0.9) 30%, rgb(21 19 17 / 0.45) 55%, rgb(21 19 17 / 0) 78%);
+    linear-gradient(to bottom, rgb(var(--ground-rgb) / 0.82) 0, rgb(var(--ground-rgb) / 0) 7rem),
+    linear-gradient(to top, var(--ground) 0, rgb(var(--ground-rgb) / 0.94) 30%, rgb(var(--ground-rgb) / 0.5) 55%, rgb(var(--ground-rgb) / 0) 78%);
 }
 
 .hero-copy {
@@ -433,23 +439,23 @@ figcaption {
 }
 
 .btn-solid {
-  background: var(--amber);
+  background: var(--accent);
   color: var(--ground);
 }
 
 .btn-solid:hover {
-  background: var(--amber-hi);
+  background: var(--accent-hi);
   color: var(--ground);
 }
 
 .btn-line {
-  border-color: rgb(237 231 221 / 0.5);
+  border-color: rgb(var(--ink-rgb) / 0.4);
   color: var(--text);
 }
 
 .btn-line:hover {
-  border-color: var(--amber);
-  color: var(--amber);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 @media (min-width: 64em) {
@@ -585,7 +591,7 @@ figcaption {
   width: 0.055em;
   height: 0.78em;
   margin-inline-start: 0.06em;
-  background: var(--amber);
+  background: var(--accent);
   opacity: 0;
 }
 
@@ -625,7 +631,7 @@ figcaption {
   width: 4.5cqmin;
   height: 4.5cqmin;
   border-radius: 50%;
-  background: var(--amber);
+  background: var(--accent);
   transform: scale(0);
 }
 
@@ -679,7 +685,7 @@ figcaption {
 }
 
 .in-blade {
-  fill: var(--amber);
+  fill: var(--accent);
   stroke: var(--ground);
   stroke-width: 1.4;
   stroke-linejoin: round;
@@ -688,7 +694,7 @@ figcaption {
 
 .in-ring {
   fill: none;
-  stroke: var(--amber);
+  stroke: var(--accent);
   stroke-width: 2;
   stroke-dasharray: 1;
 }
@@ -714,7 +720,7 @@ figcaption {
 
 .in-growth path {
   fill: none;
-  stroke: var(--amber);
+  stroke: var(--accent);
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-dasharray: 1;
@@ -746,7 +752,7 @@ figcaption {
   width: 0.45em;
   height: 0.45em;
   border-radius: 50%;
-  background: var(--amber);
+  background: var(--accent);
 }
 
 .in-end {
@@ -760,7 +766,7 @@ figcaption {
 }
 
 .in-mono-bars {
-  stroke: var(--amber);
+  stroke: var(--accent);
   stroke-width: 4.5;
   transform-box: fill-box;
 }
@@ -851,9 +857,9 @@ figcaption {
   gap: 0.45rem;
   min-height: 2.75rem;
   padding: 0 0.9rem;
-  border: 1px solid rgb(237 231 221 / 0.3);
+  border: 1px solid rgb(var(--ink-rgb) / 0.22);
   border-radius: 2px;
-  background: rgb(21 19 17 / 0.72);
+  background: rgb(var(--ground-rgb) / 0.82);
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
@@ -862,8 +868,8 @@ figcaption {
 }
 
 .intro-replay:hover {
-  border-color: var(--amber);
-  color: var(--amber);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .intro-replay svg {
@@ -990,7 +996,7 @@ figcaption {
   width: 3.5rem;
   height: 1px;
   margin-block-end: var(--s3);
-  background: var(--amber);
+  background: var(--accent);
 }
 
 .case-title {
@@ -1156,7 +1162,7 @@ figcaption {
 }
 
 .results-main > div:first-child dd {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .results-reach dd {
@@ -1222,7 +1228,7 @@ figcaption {
 }
 
 .ab-lead .ab-bar > span {
-  background: var(--amber);
+  background: var(--accent);
 }
 
 .ab-note {
@@ -1331,17 +1337,17 @@ figcaption {
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
-  border: 1px solid rgb(237 231 221 / 0.3);
+  border: 1px solid rgb(var(--ink-rgb) / 0.22);
   border-radius: 2px;
-  background: rgb(21 19 17 / 0.72);
+  background: rgb(var(--ground-rgb) / 0.82);
   color: var(--text);
   cursor: pointer;
   transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
 }
 
 .reel-btn:hover {
-  border-color: var(--amber);
-  color: var(--amber);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .reel-btn svg {
@@ -1778,8 +1784,8 @@ figcaption {
   .tool-face::after {
     z-index: -2;
     box-shadow:
-      0 22px 44px -14px rgb(0 0 0 / 0.75),
-      0 6px 14px -4px rgb(0 0 0 / 0.45);
+      0 22px 44px -14px rgb(var(--ink-rgb) / 0.22),
+      0 6px 14px -4px rgb(var(--ink-rgb) / 0.12);
   }
 
   .tool:hover .tool-face::before,
@@ -1793,7 +1799,7 @@ figcaption {
   }
 
   .tool:hover .tool-name {
-    color: var(--amber);
+    color: var(--accent);
   }
 }
 
@@ -1833,10 +1839,10 @@ figcaption {
   width: 4rem;
   height: 4rem;
   margin: -2rem 0 0 -2rem;
-  border: 1px solid var(--amber);
+  border: 1px solid var(--accent);
   border-radius: 50%;
-  background: rgb(21 19 17 / 0.66);
-  color: var(--amber);
+  background: rgb(var(--ground-rgb) / 0.8);
+  color: var(--accent);
   font-family: var(--f-display);
   font-size: 0.9375rem;
   font-weight: 700;
@@ -1894,7 +1900,7 @@ figcaption {
   margin: 0;
   padding: var(--lb-pad);
   border: 0;
-  background: rgb(21 19 17 / 0.96);
+  background: rgb(var(--ground-rgb) / 0.97);
   color: var(--text);
   cursor: zoom-out;
 }
@@ -1929,17 +1935,17 @@ figcaption {
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
-  border: 1px solid rgb(237 231 221 / 0.3);
+  border: 1px solid rgb(var(--ink-rgb) / 0.22);
   border-radius: 2px;
-  background: rgb(21 19 17 / 0.72);
+  background: rgb(var(--ground-rgb) / 0.82);
   color: var(--text);
   cursor: pointer;
   transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
 }
 
 .lightbox-close:hover {
-  border-color: var(--amber);
-  color: var(--amber);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .lightbox-close svg {
@@ -2001,15 +2007,15 @@ html:has(.lightbox[open]) {
   place-items: center;
   width: 3.5rem;
   height: 3.5rem;
-  border: 1px solid rgb(237 231 221 / 0.3);
+  border: 1px solid rgb(var(--ink-rgb) / 0.22);
   border-radius: 50%;
   color: var(--text);
   transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 
 .contact-links a:hover {
-  color: var(--amber);
-  border-color: var(--amber);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .contact-links svg {
@@ -2031,5 +2037,8 @@ html:has(.lightbox[open]) {
 }
 
 .footer a {
+  display: inline-block;
+  padding-block: 0.5rem;
+  margin-block: -0.5rem;
   color: var(--text-2);
 }

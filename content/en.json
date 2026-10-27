@@ -60,7 +60,8 @@
     "pause": "Pause video",
     "view": "VIEW",
     "open": "View larger",
-    "close": "Close"
+    "close": "Close",
+    "newTab": "opens in a new tab"
   },
   "work": {
     "heading": "Work",

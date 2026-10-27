@@ -8,8 +8,8 @@ Run `npm run logos` after changing anything in `src/`.
 | meta | Meta Insights | svgl.app `meta.svg` (Meta's blue mark) | none. Meta Insights has no mark of its own, so it uses the parent Meta mark |
 | meta-business-suite | Meta Business Suite | Google Play store icon, `com.facebook.pages.app` (512px PNG) | white app plate removed |
 | meta-ads-manager | Meta Ads Manager | Google Play store icon, `com.facebook.adsmanager` (512px PNG) | white app plate removed |
-| buffer | Buffer | Iconify `logos:buffer` (gilbarbara/logos) | filled white: Buffer's mark is one-colour, white on dark backgrounds |
-| tiktok | TikTok Ads Manager, TikTok Analytics | svgl.app `tiktok-icon-dark.svg` (TikTok's on-dark mark) | none. Neither product has a mark of its own |
+| buffer | Buffer | Iconify `logos:buffer` (gilbarbara/logos) | filled Buffer's near-black #231F20: the mark is one-colour and the page is light |
+| tiktok | TikTok Ads Manager, TikTok Analytics | svgl.app `tiktok-icon-dark.svg` | white note switched to black, TikTok's on-light mark. Neither product has a mark of its own |
 | google-ads | Google Ads | Iconify `logos:google-ads` | none |
 | snapchat | Snapchat Ads | svgl.app `snapchat.svg` | none. Snapchat Ads uses the Snapchat mark |
 | instagram | Instagram Insights | svgl.app `instagram-icon.svg` | none |
@@ -21,12 +21,12 @@ Run `npm run logos` after changing anything in `src/`.
 | adobe | Adobe Camera Raw | svgl.app `adobe.svg` (Adobe's red mark) | none. Camera Raw ships inside Photoshop and Lightroom without a product icon, so it uses the Adobe mark |
 | snapseed | Snapseed | Google Play store icon, `com.niksoftware.snapseed` (512px PNG) | white app plate removed |
 | blackmagic-camera | Blackmagic Camera | Google Play store icon, `com.blackmagicdesign.android.blackmagiccam` (512px PNG) | launcher-style rounded corners |
-| chatgpt | ChatGPT | svgl.app `openai_dark.svg` (OpenAI's on-dark mark) | none |
+| chatgpt | ChatGPT | svgl.app `openai_dark.svg` | white switched to black, OpenAI's on-light mark |
 | claude | Claude | svgl.app `claude-ai-icon.svg` | none |
 | gemini | Gemini | svgl.app `gemini.svg` | none |
-| elevenlabs | ElevenLabs | Wikimedia Commons `ElevenLabs Logo 01.svg` (white wordmark) | kept only the "II" symbol from the wordmark |
+| elevenlabs | ElevenLabs | Wikimedia Commons `ElevenLabs Logo 01.svg` (white wordmark) | kept only the "II" symbol from the wordmark, filled black for the light page |
 | higgsfield | Higgsfield | higgsfield.ai: the logo glyph SVG in the site header, on the lime of their app icon (`higgsfield.ai/icon.png`, #D1FE17) | glyph placed on a rounded lime square to match their app icon |
-| notion | Notion | svgl.app `notion.svg` | none |
+| notion | Notion | svgl.app `notion.svg` | single white fill switched to black for the light page |
 | google-workspace | Google Workspace | svgl.app `google.svg` (Google "G") | Google Workspace's own logo is the "Google Workspace" wordmark, whose grey "Workspace" fails contrast on the dark page and repeats the label under it, so it uses the parent Google mark |
 | discord | Discord | svgl.app `discord.svg` | none |
 

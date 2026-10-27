@@ -76,7 +76,7 @@ export function initIntro(section: HTMLElement) {
     [4.0, { opacity: 0, transform: 'translateY(-14%)' }], [D, { opacity: 0, transform: 'translateY(-14%)' }],
   ]);
 
-  // ---- 3. Verbs (4.0 to 7.5): one every 0.85 s, an amber dot marking each change.
+  // ---- 3. Verbs (4.0 to 7.5): one every 0.85 s, an accent dot marking each change.
   shown(k('verbs'), 4.0, 7.5);
   const starts = [4.0, 4.85, 5.7, 6.55];
   starts.forEach((s, n) => {
